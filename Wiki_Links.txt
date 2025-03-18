@@ -1,0 +1,6 @@
+https://de.wikipedia.org/wiki/Transformer_(Maschinelles_Lernen)
+https://de.wikipedia.org/wiki/Tangens_hyperbolicus_und_Kotangens_hyperbolicus
+https://de.wikipedia.org/wiki/Rekurrentes_neuronales_Netz
+https://de.wikipedia.org/wiki/Sigmoidfunktion
+https://de.wikipedia.org/wiki/Long_short-term_memory
+https://en.wikipedia.org/wiki/Gated_recurrent_unit

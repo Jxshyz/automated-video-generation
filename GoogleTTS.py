@@ -6,11 +6,18 @@ import base64
 import subprocess
 from dotenv import load_dotenv
 from pydub import AudioSegment
+from google.cloud import storage
 
 # Load API key from .env file
 load_dotenv("credentials.env")
 GOOGLE_TTS_API_KEY = os.getenv("GOOGLE_TTS_API_KEY")
 MAX_TTS_CHUNK_SIZE = 5000  # Google TTS API limit
+
+# Set Google Cloud credentials
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\eprot\OneDrive - Hochschule Düsseldorf\Dokumente\Uni\6. Semester (NO)\CV and DL\buoyant-airport-451611-d4-0e7f2929f9e6.json"
+storage_client = storage.Client()
+bucket_name = "mein-uni-bucket-2025"
+bucket = storage_client.get_bucket(bucket_name)
 
 def read_text_file(file_path):
     """Reads and filters spoken text from the input file."""
@@ -85,28 +92,29 @@ def generate_speech(text_chunks, voice="en-GB-Standard-D", speed=1.0, format="MP
             print(f"❌ API Error {i}: {response.text}")
             return
 
-    merge_audio_files(audio_files, format)
+    return merge_audio_files(audio_files, format)
 
 def merge_audio_files(audio_files, format):
-    """Merges multiple MP3 files into one using ffmpeg. Falls back to pydub if ffmpeg fails."""
+    """Merges multiple MP3 files into one using ffmpeg and uploads to GCS."""
     output_file = f"./data/output.{format.lower()}"
+    output_blob_name = f"tts_output.{format.lower()}"  # Name in GCS
 
     if not audio_files:
         print("❌ No valid audio files to merge.")
-        return
+        return None
 
     # Check if all chunk files exist before merging
     for file in audio_files:
         if not os.path.exists(file):
             print(f"❌ Missing chunk file: {file}. Merging will fail.")
-            return
+            return None
 
     concat_list = "./data/concat_list.txt"
     with open(concat_list, "w", encoding="utf-8") as f:
         for file in audio_files:
             absolute_path = os.path.abspath(file)
-            print(f"✅ Adding file: {absolute_path}")  # Debugging
-            f.write(f"file '{absolute_path}'\n")  # Use absolute paths for ffmpeg
+            print(f"✅ Adding file: {absolute_path}")
+            f.write(f"file '{absolute_path}'\n")
 
     command = [
         "ffmpeg", "-f", "concat", "-safe", "0",
@@ -121,11 +129,25 @@ def merge_audio_files(audio_files, format):
     else:
         print(f"❌ ffmpeg merge failed. Falling back to pydub.\nError: {result.stderr.decode()}")
         merge_audio_files_pydub(audio_files, output_file)
+        if not os.path.exists(output_file):
+            return None
+
+    # Upload to Google Cloud Storage
+    blob = bucket.blob(output_blob_name)
+    blob.upload_from_filename(output_file)
+    print(f"✅ Uploaded {output_file} to GCS as {output_blob_name}")
+    blob.make_public()  # Make it publicly accessible for HeyGen
+    public_url = blob.public_url
+    print(f"📎 Public URL: {public_url}")
 
     # Cleanup
     os.remove(concat_list)
     for file in audio_files:
         os.remove(file)
+    if os.path.exists(output_file):
+        os.remove(output_file)
+
+    return public_url
 
 def merge_audio_files_pydub(audio_files, output_file):
     """Fallback merging using pydub if ffmpeg fails."""
@@ -174,7 +196,11 @@ if __name__ == "__main__":
 
     if text_content:
         text_chunks = split_text(text_content)
-        generate_speech(text_chunks, format=format)
-
-    # Validate output file
-    validate_audio_file(f"./data/output.{format.lower()}")
+        public_url = generate_speech(text_chunks, format=format)
+        if public_url:
+            print(f"🎉 Final audio URL: {public_url}")
+        else:
+            print("❌ Failed to generate or upload audio.")
+    
+    # Validate output file (optional, since it's uploaded and removed locally)
+    # validate_audio_file(f"./data/output.{format.lower()}")
