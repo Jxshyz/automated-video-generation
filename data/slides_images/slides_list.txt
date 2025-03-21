@@ -1,0 +1,39 @@
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_1.png'
+duration 23.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_2.png'
+duration 32.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_3.png'
+duration 20.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_4.png'
+duration 22.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_5.png'
+duration 18.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_6.png'
+duration 29.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_7.png'
+duration 18.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_9.png'
+duration 15.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_10.png'
+duration 26.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_11.png'
+duration 24.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_12.png'
+duration 18.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_13.png'
+duration 13.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_14.png'
+duration 8.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_15.png'
+duration 24.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_16.png'
+duration 20.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_17.png'
+duration 17.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_18.png'
+duration 16.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_19.png'
+duration 17.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_20.png'
+duration 7.00
+file 'C:/Users/eprot/OneDrive - Hochschule Düsseldorf/Dokumente/Uni/6. Semester (NO)/CV and DL/automated-video-generation/data/slides_images/slide_20.png'
